@@ -1,3 +1,4 @@
+
 import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { ingredients } from './../shared/ingredient.modul';
 import { EventEmitter, Injectable } from '@angular/core';
@@ -5,19 +6,19 @@ import { Recipe } from './recipe.module';
 
 @Injectable()
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+ 
 
   private recipes: Recipe[] = [
     new Recipe(
       'A test recipe',
       'This is a test',
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?webp=true&quality=90&resize=408%2C370',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvxAJcSQRs2u2vkyS5GoKLm66Op0CqWt0rjg&usqp=CAU',
       [new ingredients('Meat', 1), new ingredients('Franch Fries', 20)]
     ),
     new Recipe(
       'Another test recipe',
       'This is a test',
-      'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?webp=true&quality=90&resize=408%2C370',
+      'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/quizzes/fast_food_smarts_rmq/650x350_fast_food_smarts_rmq.jpg',
       [new ingredients('Buns', 2), new ingredients('Meat', 1)]
     ),
   ];
