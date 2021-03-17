@@ -6,6 +6,7 @@ import { EventEmitter } from "@angular/core";
 export class ShoppingListService {
 
     ingredientChange = new Subject<ingredients[]>();
+    startedEditing = new Subject<number>();
      
    private ingredients: ingredients [] = [
         new ingredients('apple', 5),
@@ -16,9 +17,23 @@ export class ShoppingListService {
           return this.ingredients.slice();
       }
 
+      getIngredient(index: number) {
+        return this.ingredients[index];
+      }
+
+      updateIngredient(index: number, newIngredient: ingredients) {
+        this.ingredients[index] = newIngredient;
+        this.ingredientChange.next(this.ingredients.slice());
+      }
+
       addIngredient(ingredient : ingredients) {
           this.ingredients.push(ingredient);
           this.ingredientChange.next(this.ingredients.slice());
+      }
+
+      deleteIngredient(index: number) {
+        this.ingredients.splice(index, 1);
+        this.ingredientChange.next(this.ingredients.slice());
       }
 
       addIngredients(ingredients: ingredients[]) {
@@ -28,4 +43,6 @@ export class ShoppingListService {
         this.ingredients.push(...ingredients);
         this.ingredientChange.next(this.ingredients.slice());
       }
+
+      
 }
